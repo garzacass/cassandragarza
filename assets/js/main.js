@@ -195,6 +195,34 @@
 				&&	browser.osVersion < 10)
 					$navPanel
 						.css('transition', 'none');
+	
+		// Modal functionality.
+		const modal = document.getElementById("myModal");
+		const openModalBtn = document.getElementById("openModal");
+		const closeModalBtn = document.getElementById("closeModal");
+		const modalOverlay = document.getElementById("modalOverlay");
+
+		// When the user clicks the button, open the modal
+		openModalBtn.onclick = function() {
+			modal.classList.add("show");
+		}
+
+		// When the user clicks on close (x), close the modal
+		closeModalBtn.onclick = function() {
+			modal.classList.remove("show");
+		}
+
+		// When the user clicks anywhere outside the modal content, close the modal
+		modalOverlay.onclick = function() {
+			modal.classList.remove("show");
+		}
+
+		// Optional: Close the modal if the user clicks outside the modal (including the overlay)
+		window.onclick = function(event) {
+			if (event.target == modalOverlay) {
+				modal.classList.remove("show");
+			}
+		}
 
 	// Intro.
 		var $intro = $('#intro');
